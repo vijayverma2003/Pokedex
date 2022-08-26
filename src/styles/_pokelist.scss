@@ -1,0 +1,184 @@
+@use "base";
+
+@mixin pokemonContainer(
+  $color1: rgba(134, 205, 35, 0.7),
+  $color2: rgb(13, 130, 46)
+) {
+  border-radius: 16px;
+  background: rgb(205, 194, 26);
+  background: linear-gradient(135deg, $color1 0%, $color2 92%);
+  height: 100%;
+}
+
+// Pokemon Grid
+
+.pokegrid--container {
+  display: block;
+  margin: 2rem auto 4rem;
+}
+
+.pokegrid {
+  display: grid;
+  justify-content: center;
+  grid-template: repeat(1, 1fr) / repeat(3, 320px);
+  gap: 2rem;
+  column-gap: 2rem;
+}
+
+.pokemon--container {
+  max-width: 320px;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  box-shadow: 0 0 20px 2px rgba(192, 148, 148, 0.3);
+}
+
+.pokemon--details {
+  height: 100%;
+  z-index: 1;
+  padding: 0.4rem 1rem;
+  border-radius: 16px 16px 0 0;
+  background-color: rgb(245, 245, 245);
+}
+
+.pokemon--details--header {
+  @include base.flex(space-between, center);
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: 2px solid base.$lightBorder;
+}
+
+.pokemon--id {
+  position: absolute;
+  right: 10px;
+  color: base.$bgColor;
+  opacity: 0.3;
+}
+
+.pokemon--heading {
+  font-size: 1rem;
+  color: #404040;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.pokemon--description {
+  margin: 0.4rem 0;
+  font-size: 0.8rem;
+}
+
+.pokemon--image--container {
+  @include base.flex(center, center);
+  padding: 1.4rem;
+}
+
+.pokemon--image {
+  width: 320px * 0.7;
+  height: 320px * 0.7;
+}
+
+.pokelist--footer {
+  @include base.flex(space-between, center);
+  padding: 0 4rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .pokegrid {
+    grid-template: repeat(1, 1fr) / repeat(2, 320px);
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .pokegrid {
+    grid-template: repeat(1, 1fr) / repeat(1, 1fr);
+  }
+
+  .pokemon--container {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+// Type Backgrounds
+
+.bg--grass {
+  @include pokemonContainer;
+}
+
+.bg--fire {
+  @include pokemonContainer(rgba(255, 179, 2, 0.544), rgba(229, 98, 14, 1));
+}
+
+.bg--water {
+  @include pokemonContainer(rgba(8, 255, 217, 0.5), rgba(11, 116, 182, 1));
+}
+
+.bg--electric {
+  @include pokemonContainer(rgb(233, 239, 167), rgb(220, 206, 9));
+}
+
+.bg--ice {
+  @include pokemonContainer(rgba(225, 235, 234, 1), rgba(16, 217, 224, 0.86));
+}
+
+.bg--flying {
+  @include pokemonContainer(rgba(204, 205, 192, 1), rgb(139, 203, 221));
+}
+
+.bg--rock {
+  @include pokemonContainer(rgba(203, 123, 40, 0.5), rgba(102, 71, 14, 0.85));
+}
+
+.bg--ground {
+  @include pokemonContainer(
+    rgba(210, 173, 134, 0.332),
+    rgba(223, 190, 126, 0.85)
+  );
+}
+
+.bg--fighting {
+  @include pokemonContainer(rgba(215, 142, 66, 0.5), rgba(161, 74, 37, 0.9));
+}
+
+.bg--dark {
+  @include pokemonContainer(rgba(129, 129, 129, 0.5), rgba(31, 31, 31, 0.9));
+}
+
+.bg--fairy {
+  @include pokemonContainer(rgba(215, 153, 214, 0.2), rgba(220, 127, 204, 0.7));
+}
+
+.bg--dragon {
+  @include pokemonContainer(rgba(214, 119, 119, 0.5), rgba(66, 95, 170, 0.7));
+}
+
+.bg--ghost {
+  @include pokemonContainer(rgba(73, 83, 99, 0.5), rgba(18, 35, 82, 0.7));
+}
+
+.bg--normal {
+  @include pokemonContainer(
+    rgba(199, 199, 199, 0.317),
+    rgba(107, 107, 107, 0.5)
+  );
+}
+
+.bg--poison {
+  @include pokemonContainer(rgba(164, 102, 218, 0.5), rgba(82, 13, 108, 0.798));
+}
+
+.bg--psychic {
+  @include pokemonContainer(
+    rgba(233, 124, 229, 0.687),
+    rgba(137, 10, 133, 0.798)
+  );
+}
+
+.bg--steel {
+  @include pokemonContainer(rgba(119, 159, 214, 0.2), rgba(82, 95, 128, 0.7));
+}
+
+.bg--bug {
+  @include pokemonContainer(rgba(176, 210, 65, 0.2), rgba(103, 119, 17, 0.7));
+}

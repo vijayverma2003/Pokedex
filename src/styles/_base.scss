@@ -1,0 +1,94 @@
+// Variables
+
+$bgColor: #f6f2f2;
+$darkColor: #404040;
+$inputBg: rgba(0, 0, 0, 0.1);
+$lightBorder: rgba(0, 0, 0, 0.1);
+$primaryColor: #f25858;
+
+$grass: #348647;
+$bug: rgb(108, 158, 28);
+$poison: #7417c6;
+$water: rgb(79, 126, 226);
+$fire: rgb(255, 102, 0);
+$fairy: pink;
+$psychic: rgb(239, 27, 147);
+$flying: rgb(105, 150, 196);
+$ice: rgb(0, 225, 255);
+$steel: rgba(82, 95, 128, 0.7);
+$rock: rgb(131, 59, 20);
+$ground: rgb(176, 155, 95);
+$normal: rgba(94, 94, 94);
+$electric: rgb(239, 215, 0);
+$fighting: rgb(196, 68, 22);
+$dark: rgb(15, 15, 15);
+$ghost: rgb(27, 46, 87);
+$dragon: linear-gradient(135deg, rgb(196, 87, 113), rgb(94, 94, 190));
+
+$fontStack: "Fredoka One", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  sans-serif;
+
+// Mixins
+
+@mixin flex($justify: center, $align: center, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Extensions
+
+%input--base {
+  font-family: $fontStack;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 16px;
+  border: none;
+  background-color: transparent;
+  color: $darkColor;
+  outline: none;
+  min-width: 300px;
+  letter-spacing: 2px;
+}
+
+%button--base {
+  background-color: transparent;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  height: 100vh;
+  background-color: $bgColor;
+  font-family: $fontStack;
+  box-sizing: border-box;
+  color: #404040;
+  // overflow-x: hidden;
+}
+
+// Typography
+
+h3 {
+  font-size: 1.8rem;
+  margin: 0.8rem 0;
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin: 1.8rem 0 1rem;
+}
+
+p {
+  line-height: 1.5;
+  margin: 0;
+}
+
+// Links
+
+a {
+  text-decoration: none;
+  color: $darkColor;
+}

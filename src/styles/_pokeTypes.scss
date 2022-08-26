@@ -1,0 +1,84 @@
+@use "base";
+
+// Type colors
+
+.type {
+  color: base.$bgColor;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 12px;
+  margin-right: 0.4rem;
+  line-height: 1;
+}
+
+.grass {
+  background-color: base.$grass;
+}
+
+.fire {
+  background-color: base.$fire;
+}
+
+.poison {
+  background-color: base.$poison;
+}
+
+.flying {
+  background-color: base.$flying;
+}
+
+.psychic {
+  background-color: base.$psychic;
+}
+
+.ice {
+  background-color: base.$ice;
+}
+
+.dragon {
+  background: base.$dragon;
+}
+
+.water {
+  background-color: base.$water;
+}
+
+.bug {
+  background-color: base.$bug;
+}
+
+.fairy {
+  background-color: base.$fairy;
+}
+
+.steel {
+  background-color: base.$steel;
+}
+
+.rock {
+  background-color: base.$rock;
+}
+
+.ground {
+  background-color: base.$ground;
+}
+
+.normal {
+  background-color: base.$normal;
+}
+
+.electric {
+  background-color: base.$electric;
+}
+
+.fighting {
+  background-color: base.$fighting;
+}
+
+.dark {
+  background-color: base.$dark;
+}
+
+.ghost {
+  background-color: base.$ghost;
+}

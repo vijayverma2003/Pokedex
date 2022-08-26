@@ -1,0 +1,119 @@
+@use "base";
+
+// Pokemon Info
+
+.pokemon--info {
+  padding: 1.4rem 4rem 4rem;
+
+  .legendary {
+    color: transparent;
+    background: linear-gradient(
+      135deg,
+      rgb(30, 117, 198),
+      rgb(174, 20, 217) 20%
+    );
+    background-clip: text;
+  }
+
+  .pokemon--info--header {
+    @include base.flex(space-between, flex-start);
+
+    .pokemon--name {
+      letter-spacing: 1.6px;
+    }
+  }
+
+  .pokemon--info--main {
+    @include base.flex(flex-start, flex-start);
+    margin: 4rem 0;
+    gap: 4rem;
+
+    .pokemon--info--image {
+      width: 320px * 0.9;
+    }
+  }
+
+  .small--heading {
+    font-size: 0.8rem;
+  }
+
+  .pokemon--extra--info {
+    @include base.flex(flex-start, flex-start);
+    gap: 2.4rem;
+  }
+
+  .evolutions {
+    display: grid;
+    grid-template: repeat(1, 1fr) / repeat(3, 1fr);
+    width: min-content;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .evolution {
+    @include base.flex(center, center, $direction: column);
+    cursor: pointer;
+  }
+
+  .evolution--name {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .evolution--image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .evolution--level {
+    font-size: 0.8rem;
+  }
+
+  .evolution--type {
+    margin-top: 0.8rem;
+
+    .type {
+      font-size: 0.6rem;
+    }
+  }
+
+  td {
+    padding: 0.4rem 4rem 0.4rem 0;
+  }
+
+  .weakness {
+    @include base.flex(flex-start, flex-start);
+    gap: 1.4rem;
+  }
+
+  .ability {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pokemon--info {
+    padding: 1.4rem 1.4rem 4rem;
+
+    .pokemon--info--main {
+      @include base.flex(center, center, column);
+      padding: 1rem 0;
+      width: 100%;
+    }
+
+    .pokemon--extra--info {
+      @include base.flex(flex-start, flex-start, column);
+      gap: 2.4rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .evolutions {
+      grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+      gap: 4rem;
+    }
+
+    .evolution {
+      @include base.flex(center, center, $direction: column);
+    }
+  }
+}
