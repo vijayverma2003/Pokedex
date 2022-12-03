@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Pokedex from "pokedex-promise-v2";
 import { titleCase } from "../services/string";
 import { Link } from "react-router-dom";
 import { getFlavorTextEntry } from "../services/utils";
 
 function PokeListItem({ name }) {
-  const pokedex = new Pokedex();
-
   const [pokemon, setPokemon] = useState({
     name: "Pokémon",
     types: [{ type: { name: "normal" } }],
@@ -15,7 +13,8 @@ function PokeListItem({ name }) {
     flavor_text_entries: [{ flavor_text: "" }],
   });
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
+    const pokedex = new Pokedex();
     try {
       const pokemon = await pokedex.getPokemonByName(name);
       setPokemon(pokemon);
@@ -24,11 +23,11 @@ function PokeListItem({ name }) {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [name]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return (
     <Link to={`/pokemon/${pokemon.id}`}>

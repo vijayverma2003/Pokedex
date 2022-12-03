@@ -7,10 +7,10 @@ function Navbar(props) {
   return (
     <nav>
       <Link to="/">
-        <img src={logo} className="nav--logo" />
+        <img src={logo} alt="" className="nav--logo" />
       </Link>
       <button className="menu--button">
-        <img src={menu} alt="" />
+        {/* <img src={menu} alt="" /> */}
       </button>
     </nav>
   );

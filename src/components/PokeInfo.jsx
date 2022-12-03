@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Pokedex from "pokedex-promise-v2";
 import { useParams } from "react-router-dom";
 import { titleCase } from "../services/string";
@@ -32,7 +32,6 @@ ChartJS.register(
 
 function PokeInfo(props) {
   const params = useParams();
-  const pokedex = new Pokedex();
   const [pokemon, setPokemon] = useState({
     id: Number(params.id),
     name: "Pokémon",
@@ -47,7 +46,9 @@ function PokeInfo(props) {
   const [weakness, setWeakness] = useState([]);
   const [varieties, setVarieties] = useState([]);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
+    const pokedex = new Pokedex();
+
     try {
       const pokemon = await pokedex.getPokemonByName(params.id);
       setPokemon(pokemon);
@@ -98,11 +99,11 @@ function PokeInfo(props) {
     } catch (error) {
       console.log("Error getting Pokémon data...");
     }
-  };
+  }, [params.id]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   function handleNext() {
     window.location =
